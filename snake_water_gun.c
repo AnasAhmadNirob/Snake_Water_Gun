@@ -145,7 +145,9 @@ void playgame()
     }
     fprintf(ptr, "///// SC OR E BOarD /////");
     fprintf(ptr, "\n==== R E S U L T ====\n");
-
+    time_t t;
+    time(&t);
+    fprintf(ptr, "-->Date & Time:%s", ctime(&t));
     fprintf(ptr, "You Wins      = %d\n", s.user);
     fprintf(ptr, "Computer Wins = %d\n", s.computer);
 
