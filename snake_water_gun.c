@@ -14,7 +14,7 @@ void playgame();
 void showscore();
 void title();
 void updatescore(score *s, int r);
-
+void gamerules();
 void title()
 {
     printf("\n");
@@ -84,7 +84,9 @@ void playgame()
     for (int i = 1; i <= 5; i++)
     {
 
-        printf("\n=====Round %d=====\n", i);
+        printf("\n=====================\n");
+        printf("\n=======Round %d=======\n", i);
+        printf("\n=====================\n");
 
         printf("Press --> 0 = Snake\n");
         printf("Press --> 1 = Water\n");
@@ -102,24 +104,27 @@ void playgame()
         if (r == 1)
         {
             printf("You win this round!\n");
-
+            printf("===================\n");
             updatescore(&s, r);
         }
 
         else if (r == -1)
         {
             printf("Computer wins this round!\n");
-
+            printf("=========================\n");
             updatescore(&s, r);
         }
 
         else
         {
             printf("Draw round!\n");
+            printf("===========\n");
         }
     }
 
+    printf("\n=====================\n");
     printf("\n=====Final Score=====\n");
+    printf("\n=====================\n");
 
     printf("You      = %d\n", s.user);
     printf("Computer = %d\n", s.computer);
@@ -143,8 +148,9 @@ void playgame()
         printf("File error!\n");
         return;
     }
-    fprintf(ptr, "///// SC OR E BOarD /////");
-    fprintf(ptr, "\n==== R E S U L T ====\n");
+    fprintf(ptr, "\n=======================\n");
+    fprintf(ptr, "\n===== R E S U L T =====\n");
+    fprintf(ptr, "\n=======================\n");
     time_t t;
     time(&t);
     fprintf(ptr, "-->Date & Time:%s", ctime(&t));
@@ -192,7 +198,22 @@ void showscore()
 
     fclose(ptr);
 }
-
+void gamerules()
+{
+    FILE *pointer;
+    char ch;
+    pointer = fopen("Game_Rules.txt", "r");
+    if (pointer == NULL)
+    {
+        printf("Invalid!");
+        return;
+    }
+    while ((ch = fgetc(pointer)) != EOF)
+    {
+        printf("%c", ch);
+    }
+    fclose(pointer);
+}
 int main()
 {
 
@@ -204,12 +225,14 @@ int main()
     {
 
         title();
-
+        printf("\n===================\n");
         printf("\n==== MAIN MENU ====\n");
+        printf("\n===================\n");
 
         printf("Press: 1 --> Play Game\n");
         printf("Press: 2 --> Show Score History\n");
-        printf("Press: 3 --> Exit\n");
+        printf("Press: 3 --> Game Rules\n");
+        printf("Press: 4 --> Exit\n");
 
         printf("Enter your choice: ");
         scanf("%d", &choice);
@@ -228,8 +251,13 @@ int main()
             showscore();
             break;
         }
-
         case 3:
+        {
+            gamerules();
+            break;
+        }
+
+        case 4:
         {
             printf("=====T H E <---> E N D=====\n");
             exit(0);

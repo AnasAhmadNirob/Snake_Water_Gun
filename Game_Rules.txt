@@ -1,0 +1,36 @@
+========== SNAKE WATER GUN - GAME RULES ==========
+
+1. This game is played between the User and the Computer.
+
+2. There are three choices in the game:
+   0 = Snake
+   1 = Water
+   2 = Gun
+
+3. The user selects a number (0, 1, or 2).
+
+4. The computer randomly generates a number between 0 and 2.
+
+5. The winner is decided based on the following rules:
+
+   Snake drinks Water  -> Snake wins
+   Water drowns Gun    -> Water wins
+   Gun kills Snake     -> Gun wins
+
+6. If both the user and computer choose the same option,
+   the result will be a Draw.
+
+7. After each round, the score will be updated.
+
+8. The player can continue playing multiple rounds.
+
+9. The game menu allows the player to:
+   - Start a new game
+   - View the score
+   - Read the rules
+   - Exit the game
+
+10. The objective of the game is to score more wins
+    than the computer.
+
+==================================================
