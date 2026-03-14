@@ -256,10 +256,11 @@ void showscore()
 
     printf("\n======================\n");
 
+    putchar(ch);
 
     while ((ch = fgetc(ptr)) != EOF)
     {
-        putchar(ch);
+        printf("%c", ch);
     }
 
     fclose(ptr);
