@@ -245,12 +245,21 @@ void showscore()
         return;
     }
 
-    printf("\n==========^^^^^==========\n");
+    ch = fgetc(ptr);
 
-    // read file character by character
+    if (ch == EOF)
+    {
+        printf("No score history found!\n");
+        fclose(ptr);
+        return;
+    }
+
+    printf("\n======================\n");
+
+
     while ((ch = fgetc(ptr)) != EOF)
     {
-        printf("%c", ch);
+        putchar(ch);
     }
 
     fclose(ptr);
